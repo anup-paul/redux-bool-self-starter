@@ -15,7 +15,11 @@ const bookReducer = (state = initialState, action) =>{
             return newState
         }
         case 'REMOVE_FROM_READING_LIST':{
-            return state
+            const newState = {
+                ...state,
+                readingList : state.readingList.filter((b)=>b.id !== action.payload)
+            }
+            return newState
         }
         default :{
             return state
